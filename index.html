@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - Allan Albuquerque</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f3f4f6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 300px 1fr;
+            }
+        }
+
+        /* Sidebar Style */
+        .sidebar {
+            background-color: #111827;
+            color: var(--white);
+            padding: 40px 30px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .profile-header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .profile-header p {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            font-weight: 300;
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-section h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            border-bottom: 1px solid #374151;
+            padding-bottom: 5px;
+        }
+
+        .contact-list, .cert-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-list a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-list a:hover {
+            color: var(--white);
+        }
+
+        .cert-list li {
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+        }
+
+        .cert-list b {
+            display: block;
+            color: var(--white);
+        }
+
+        .cert-list span {
+            color: #9ca3af;
+            font-size: 0.8rem;
+        }
+
+        /* Main Content Style */
+        .main-content {
+            padding: 40px;
+            background-color: var(--white);
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+        }
+
+        .objective-text {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .qualifications-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        @media (min-width: 600px) {
+            .qualifications-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .qual-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .qual-item i {
+            color: var(--primary-color);
+            margin-top: 4px;
+            font-size: 0.8rem;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .experience-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .item-date {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .item-company {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .address-box {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                grid-template-columns: 250px 1fr;
+            }
+            .sidebar {
+                background-color: #f3f4f6 !important;
+                color: black !important;
+            }
+            .sidebar h1, .sidebar b, .sidebar a {
+                color: black !important;
+            }
+            .sidebar-section h2 {
+                border-bottom: 1px solid #ccc !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-header">
+                <img src="pasted_file_iTEGa6_image.png" alt="Allan Albuquerque" class="profile-img">
+                <h1>Allan Albuquerque</h1>
+                <p>Brasileiro, 22 anos</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Contato</h2>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:allan_gg@outlook.com">allan_gg@outlook.com</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="https://wa.me/5581994733852">(81) 99473-3852</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/albuquemkt" target="_blank">in/albuquemkt</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-github"></i>
+                        <a href="https://github.com/AllanDevIndie/" target="_blank">AllanDevIndie</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-instagram"></i>
+                        <a href="https://www.instagram.com/devalbk/" target="_blank">@devalbk</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Certificações</h2>
+                <ul class="cert-list">
+                    <li>
+                        <b>Espanhol</b>
+                        <span>Fluency Academy - 150h</span>
+                    </li>
+                    <li>
+                        <b>Storytelling e Apresentação</b>
+                        <span>FGV</span>
+                    </li>
+                    <li>
+                        <b>Marketing e SEO</b>
+                        <span>Redator Hacker</span>
+                    </li>
+                    <li>
+                        <b>LGPD</b>
+                        <span>Fundação Bradesco</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Endereço</h2>
+                <div class="address-box" style="background: transparent; padding: 0; color: #d1d5db;">
+                    <i class="fa-solid fa-location-dot" style="color: var(--primary-color);"></i>
+                    <span>Santa Cruz do Capibaribe - PE</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <section class="section">
+                <h2 class="section-title"><i class="fa-solid fa-bullseye"></i> Objetivo</h2>
+                <p class="objective-text">
+                    Desenvolvedor Front-End, UI/UX Developer ou Desenvolvedor Full-stack. 
+                    Busco oportunidades para aplicar meus conhecimentos em criação de interfaces modernas, funcionais e centradas no usuário.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fa-solid fa-star"></i> Qualificações</h2>
+                <div class="qualifications-grid">
+                    <div class="qual-item"><i class="fa-solid fa-check"></i> HTML5, CSS3 & JavaScript</div>
+                    <div class="qual-item"><i class="fa-solid fa-check"></i> Design Gráfico & UI/UX</div>
+                    <div class="qual-item"><i class="fa-solid fa-check"></i> Design Responsivo</div>
+                    <div class="qual-item"><i class="fa-solid fa-check"></i> Acessibilidade Web</div>
+                    <div class="qual-item"><i class="fa-solid fa-check"></i> Trabalho em Equipe</div>
+                    <div class="qual-item"><i class="fa-solid fa-check"></i> Marketing & SEO</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Experiência Profissional</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Designer de Tecidos</span>
+                        <span class="item-date">2025 - Presente</span>
+                    </div>
+                    <div class="item-company">A'Veloz Têxtil</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Monitor</span>
+                        <span class="item-date">2024 - 2025</span>
+                    </div>
+                    <div class="item-company">ABDESM</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Designer Gráfico</span>
+                        <span class="item-date">2022 - 2023</span>
+                    </div>
+                    <div class="item-company">Mini Dylla</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Social Media</span>
+                        <span class="item-date">2021 - 2022</span>
+                    </div>
+                    <div class="item-company">Codecom</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Designer de Estampas</span>
+                        <span class="item-date">2018 - 2019</span>
+                    </div>
+                    <div class="item-company">Trilha do Corpo</div>
+                </div>
+                
+                <!-- Note: Removed older experiences to focus on the most relevant ones for a cleaner look, but they can be kept if needed. I kept the most recent 5. -->
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Formação Acadêmica</h2>
+                <div class="education-item">
+                    <div class="item-header">
+                        <span class="item-title">Bacharel em Análise e Desenvolvimento de Sistemas</span>
+                        <span class="item-date">Prev. 2028</span>
+                    </div>
+                    <div class="item-company">Unigrande - Centro Universitário</div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
